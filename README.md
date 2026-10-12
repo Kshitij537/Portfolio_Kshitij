@@ -23,6 +23,23 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact form setup
+
+The Send button uses [EmailJS](https://www.emailjs.com/). It stays disabled until the following values are configured. No email password is needed in this project.
+
+1. In EmailJS, create an email service connected to the inbox that should receive messages. Copy its Service ID.
+2. Create an email template. Set its recipient to `kshitijkdeshmukh@gmail.com` and use `{{from_name}}`, `{{from_email}}`, and `{{message}}` in the template. Copy its Template ID.
+3. Copy the Public Key from your EmailJS account settings.
+4. Create `.env.local` in the project root with the values below, then restart the development server. Add the same three variables to your hosting provider and redeploy there.
+
+```dotenv
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Do not commit `.env.local`. The EmailJS Public Key is designed for browser use; never put an email account password or private key in a `NEXT_PUBLIC_` variable. The "Email directly" link remains available separately when the form is not configured.
+
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.

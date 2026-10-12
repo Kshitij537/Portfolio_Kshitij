@@ -49,11 +49,12 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-4 text-secondary text-[18px] max-w-3xl leading-[30px] font-semibold'
         >
-          I'm a skilled software developer with experience in HTML CSS and
-          JavaScript, and expertise in frameworks like React, Node.js, and
-          Express.js. I'm a quick learner and collaborate closely with clients to
-          create efficient, scalable, and user-friendly solutions that solve
-          real-world problems. Let's work together to bring your ideas to life!
+          I'm a software developer working across full-stack web development and
+          AI/ML. I build products with React, Next.js, Node.js and Express on the
+          front, and Python, PostgreSQL and machine learning pipelines behind
+          them. I'm a quick learner and enjoy turning messy, real-world problems
+          into efficient, scalable and user-friendly solutions. Let's work
+          together to bring your ideas to life!
         </motion.p>
         <Image src={color_sharp} alt="color-sharp" className="absolute z-[-1] h-80 -left-60 w-screen -top-20" />
         <Image src={astronaut} alt="astronaut" className="absolute z-[-1] h-80 -right-20 animation top-28" />

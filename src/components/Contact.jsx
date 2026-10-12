@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -9,8 +9,12 @@ import { SectionWrapper } from "./hoc";
 import { slideIn } from "../utils/motion";
 import { toast } from "react-hot-toast";
 
+const emailServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.SERVICE_ID;
+const emailTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.TEMPLATE_ID;
+const emailPublicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.PUBLIC_KEY;
+const hasEmailJSConfig = Boolean(emailServiceId && emailTemplateId && emailPublicKey);
+
 const Contact = () => {
-  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -29,19 +33,23 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    console.log('Service ID: ', process.env.MAIL_PASS);
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill all the fields.");
       return;
     }
+
+    if (!hasEmailJSConfig) {
+      toast.error("Direct messaging is unavailable right now.");
+      return;
+    }
+
     setLoading(true);
     try {
-    emailjs
-      .send(
-        process.env.SERVICE_ID,
-        process.env.TEMPLATE_ID,
+      await emailjs.send(
+        emailServiceId,
+        emailTemplateId,
         {
           from_name: form.name,
           to_name: "Kshitij Deshmukh",
@@ -49,31 +57,15 @@ const Contact = () => {
           to_email: "kshitijkdeshmukh@gmail.com",
           message: form.message,
         },
-        process.env.PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          toast.success("Thanks for reaching out. I'll get back to you soon.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error('FAILED...', error);
-
-          toast.error("Oops! Something went wrong. Please try again.");
-        }
-        
+        emailPublicKey
       );
+      toast.success("Thanks for reaching out. I'll get back to you soon.");
+      setForm({ name: "", email: "", message: "" });
     } catch (error) {
+      console.error("EmailJS send failed:", error);
+      toast.error("Message couldn't be sent. Please email me directly.");
+    } finally {
       setLoading(false);
-      console.error('FAILED...', error);
-      toast.error("Oops! Something went wrong. Please try again.");
     }
   };
 
@@ -89,7 +81,6 @@ const Contact = () => {
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
         <form
-          ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
         >
@@ -129,10 +120,17 @@ const Contact = () => {
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl hover:bg-purple-950 outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            disabled={loading || !hasEmailJSConfig}
+            className='bg-tertiary py-3 px-8 rounded-xl hover:bg-purple-950 outline-none w-fit text-white font-bold shadow-md shadow-primary disabled:opacity-50 disabled:cursor-not-allowed'
           >
             {loading ? "Sending..." : "Send"}
           </button>
+          {!hasEmailJSConfig && (
+            <p className='text-secondary text-sm'>Direct messaging is unavailable right now.</p>
+          )}
+          <a href='mailto:kshitijkdeshmukh@gmail.com' className='w-fit text-secondary underline hover:text-white'>
+            Email directly
+          </a>
         </form>
       </motion.div>
 

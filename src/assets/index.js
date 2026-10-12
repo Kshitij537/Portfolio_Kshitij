@@ -25,6 +25,17 @@ import express from "./tech/express.png";
 import java from "./tech/java.png";
 import jwt from "./tech/jwt.svg";
 import nextauth from "./tech/nextauth.png";
+import python from "./tech/python.svg";
+import c from "./tech/c.svg";
+import cplusplus from "./tech/cplusplus.svg";
+import sql from "./tech/sql.svg";
+import postgresql from "./tech/postgresql.svg";
+import numpy from "./tech/numpy.svg";
+import pandas from "./tech/pandas.svg";
+import opencv from "./tech/opencv.svg";
+import githubIcon from "./tech/github.svg";
+import vscode from "./tech/vscode.svg";
+import intellij from "./tech/intellij.svg";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -36,6 +47,9 @@ import jobit from "./jobit.png";
 import inkSync from "./ink.png";
 import tracker from "./tracker.png";
 import socialSphere from "./socialSphere.png";
+import agrichain from "./agrichain.png";
+import nyaysathi from "./nyaysathi.svg";
+import garudadrishti from "./garudadrishti.svg";
 
 export {
   logo,
@@ -73,4 +87,18 @@ export {
   java,
   jwt,
   nextauth,
+  python,
+  c,
+  cplusplus,
+  sql,
+  postgresql,
+  numpy,
+  pandas,
+  opencv,
+  githubIcon,
+  vscode,
+  intellij,
+  agrichain,
+  nyaysathi,
+  garudadrishti,
 };

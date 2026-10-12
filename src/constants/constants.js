@@ -3,28 +3,25 @@ import {
   backend,
   web,
   javascript,
-  typescript,
-  html,
-  css,
   reactjs,
-  redux,
   tailwind,
   nodejs,
   mongodb,
   git,
-  figma,
-  docker,
-  carrent,
-  jobit,
-  inkSync,
-  tracker,
-  threejs,
   nextjs,
   express,
   java,
-  jwt,
-  nextauth,
-  socialSphere,
+  python,
+  c,
+  cplusplus,
+  sql,
+  postgresql,
+  numpy,
+  pandas,
+  opencv,
+  githubIcon,
+  vscode,
+  intellij,
 } from "../assets";
 
 export const navLinks = [
@@ -33,8 +30,20 @@ export const navLinks = [
     title: "About",
   },
   {
+    id: "internships",
+    title: "Internships",
+  },
+  {
     id: "work",
     title: "Projects",
+  },
+  {
+    id: "achievements",
+    title: "Achievements",
+  },
+  {
+    id: "education",
+    title: "Education",
   },
   {
     id: "contact",
@@ -52,7 +61,7 @@ const services = [
     icon: mobile,
   },
   {
-    title: "Programmer",
+    title: "AI/ML Developer",
     icon: backend,
   },
   // {
@@ -62,267 +71,200 @@ const services = [
 ];
 
 const technologies = [
+  // Row 1 - languages
   {
-    name: "React JS",
-    icon: reactjs,
-    position: [0, 0, 0],
+    name: "Python",
+    icon: python,
   },
   {
-    name: "Next JS",
-    icon: nextjs,
-    position: [2, 0, 0],
+    name: "C",
+    icon: c,
   },
   {
-    name: "Express JS",
-    icon: express,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  // {
-  //   name: "Three JS",
-  //   icon: threejs,
-  // },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
+    name: "C++",
+    icon: cplusplus,
   },
   {
     name: "Java",
     icon: java,
   },
   {
-    name: "JWT",
-    icon: jwt,
+    name: "JavaScript",
+    icon: javascript,
   },
-  // {
-  //   name: "NextAuth",
-  //   icon: nextauth,
-  // },
-  // {
-  //   name: "figma",
-  //   icon: figma,
-  // },
-  // {
-  //   name: "docker",
-  //   icon: docker,
-  // },
+  {
+    name: "React JS",
+    icon: reactjs,
+  },
+  {
+    name: "Next JS",
+    icon: nextjs,
+  },
+  // Row 2 - backend & databases
+  {
+    name: "Node JS",
+    icon: nodejs,
+  },
+  {
+    name: "Express JS",
+    icon: express,
+  },
+  {
+    name: "MongoDB",
+    icon: mongodb,
+  },
+  {
+    name: "PostgreSQL",
+    icon: postgresql,
+  },
+  {
+    name: "SQL",
+    icon: sql,
+  },
+  // Row 3 - libraries & tools
+  {
+    name: "NumPy",
+    icon: numpy,
+  },
+  {
+    name: "Pandas",
+    icon: pandas,
+  },
+  {
+    name: "OpenCV",
+    icon: opencv,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: tailwind,
+  },
+  {
+    name: "Git",
+    icon: git,
+  },
+  {
+    name: "GitHub",
+    icon: githubIcon,
+  },
+  {
+    name: "VS Code",
+    icon: vscode,
+  },
+  {
+    name: "IntelliJ IDEA",
+    icon: intellij,
+  },
 ];
 
 const projects = [
   {
-    name: "InkSync",
+    name: "AgriChain",
     description:
-      "A real-time collaborative whiteboard web application built with NextJs, Express, and Socket.io.",
+      "A farm analytics and agri-marketplace platform that turns satellite imagery and crop data into actionable decisions for farmers.",
     features: [
-      "Users can create a room and invite others to join the room using a unique room code.",
-      "Users can draw on the whiteboard and the changes will be reflected in real-time to all the users in the room.",
+      "Crop health monitoring with NDVI vegetation indices computed from Google Earth Engine satellite passes.",
+      "Interactive geospatial farm view built with Leaflet to draw and track individual field boundaries.",
+      "Leaf disease detection from uploaded scans using an OpenCV and CNN based image pipeline.",
+      "Spoilage prediction for cold-storage batches to estimate remaining shelf life.",
+      "Market price forecasting for crops using an ML regression model.",
+      "JWT authenticated REST API with a PostgreSQL data layer and a dedicated Python analytics service.",
     ],
-    tags: [
-      {
-        name: "NextJs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "ExpressJs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Socket.io",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Tailwind",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "NodeJs",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: inkSync,
-    source_code_link: "https://github.com/himanshu8443/InkSync",
-    live_link: "https://www.inksync.cloud/",
+    tags: ["Python", "Machine Learning", "PostgreSQL", "React.js", "Google Earth Engine", "Leaflet"],
+    visual: "agriculture",
+    source_code_link: "https://github.com/Kshitij537/AgriChain",
   },
   {
-    name: "Hayasaka",
+    name: "NyaySathi",
     description:
-      "A dynamic full-stack music streaming web application with Next.js 13 and MongoDB.",
+      "An AI powered legal complaint management system that triages, classifies and drafts responses for incoming cases using a multi-agent workflow.",
     features: [
-      "User authentication using NextAuth.js with JWT and OAuth providers.",
-      "Redux to Manage app state effectively.",
-      "Play, pause, skip, and control the playback of songs.",
-      "Users can Create, update and delete their own playlists.",
-      "Add songs to favorites in one click.",
-      "Auto adds similar songs to the queue.",
-      "Swipe and touch gestures for touch-responsive devices.",
-      "Display song details such as title, artist, album, and album artwork.",
-      "PWA (Progressive Web App) support. ",
+      "Multi-agent LangGraph pipeline that handles intake and validation, legal classification, priority scoring, document drafting and staff assignment.",
+      "Automatic classification of complaints into categories such as civil, labour, consumer, cyber, property and family law.",
+      "Priority scoring that surfaces urgent cases and tracks statutory compliance deadlines.",
+      "Automated drafting of legal notices and case documents from the parsed complaint.",
+      "Live dashboard with open complaint volume, auto-resolution rate and average response time.",
     ],
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "nextjs",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "nextauth",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "redux",
-        color: "green-text-gradient",
-      },
-    ],
-    image: carrent,
-    source_code_link: "https://github.com/himanshu8443/hayasaka",
-    live_link: "https://hayasaka.live/",
+    tags: ["Python", "LangGraph", "React.js", "Node.js"],
+    visual: "legal",
+    source_code_link: "https://github.com/Kshitij537/NyaySathi",
   },
   {
-    name: "Study Notion",
-    description: "Developed an educational technology website with CMS.",
+    name: "Garudadrishti",
+    description:
+      "A social media monitoring console that scrapes public posts at scale, classifies them with AI and raises real-time alerts on harmful content.",
     features: [
-      "Implemented Email verification and using OTP user authentication and login/signup functionality using JWT for secure access to the platform.",
-      "Students can browse and purchase courses. Instructors can create new courses, edit existing courses, and delete courses they have created.",
-      "Integrated MongoDB database to store user information, course data, and progress tracking.",
-      "Employed RESTful API principles for seamless communication between the frontend and backend systems.",
-      "Razorpay payment integration.",
-      "PWA (Progressive Web App) support.",
+      "Automated scrapers that continuously collect posts across monitored platforms with health tracking per scraper.",
+      "AI content classification into neutral, positive, negative and flagged/harmful buckets.",
+      "Sentiment and mention volume analytics aggregated over rolling 24 hour windows.",
+      "Keyword spike detection that triggers alerts and escalates content to a human review queue.",
+      "Exportable reports and role based access for review teams.",
     ],
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "ExpressJs",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "green-text-gradient",
-      },
+    tags: ["React.js", "Node.js", "Express.js", "Machine Learning"],
+    visual: "monitoring",
+    source_code_link: "https://github.com/Kshitij537/Garudadrishti",
+  },
+];
+
+const internships = [
+  {
+    title: "Apprentice Program - GenAI | LLM Gateway Project",
+    company: "Persistent Systems",
+    location: "Nagpur, Maharashtra",
+    date: "Jul 2026 - Present",
+    highlights: [
+      "Contributing to a multi-model LLM Gateway that routes user queries to suitable open-source LLMs through a unified interface.",
+      "Developing the web application with React.js, Vite, Tailwind CSS, Python and REST APIs, with local LLM inference through Ollama.",
+      "Working on session management, rate limiting, backend architecture, API integration and Supabase/PostgreSQL data integration.",
+      "Integrated Supabase Authentication/OAuth and contributed to LLM research and model evaluation, with Qwen 3.5:4B currently integrated.",
+      "Contributed to end-to-end chat workflows and 9 model-router tests validating model selection and routing functionality.",
     ],
-    image: jobit,
-    source_code_link: "https://github.com/himanshu8443/Study-Notion-master",
-    live_link: "https://studynotion-master.vercel.app/",
   },
   {
-    name: "FlipKart Price Tracker",
+    title: "AI/ML & Full Stack Developer Intern",
+    company: "Cybrainyx - Garudadrishti, AI-Based Social Media Monitoring System",
+    location: "Nagpur, Maharashtra",
+    date: "Aug 2025 - Feb 2026",
+    highlights: [
+      "Developed AI-powered features across machine learning, data processing, backend services and application development for an intelligent social media monitoring platform.",
+      "Optimized 3 machine learning modules and developed 10+ REST API endpoints using Node.js and Express.js for authentication, reporting, scraping and workflow automation.",
+      "Built 8+ React.js dashboard interfaces and collaborated with a 5-member cross-functional team on testing, debugging, deployment and feature development.",
+    ],
+  },
+];
+
+const achievements = [
+  {
+    title: "Top 15 - Swalambh Hackathon",
     description:
-      "Chrome extension to track FlipKart product prices and send an alert to users when prices go below the user-selected price.",
-    features: [
-      "Users can add products to the watchlist by clicking on the extension icon on the product page.",
-      "Users can set a price alert by entering the desired price for the product.",
-    ],
-    tags: [
-      {
-        name: "JavaScript",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Chrome Extension",
-        color: "green-text-gradient",
-      },
-      {
-        name: "ReactJs",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: tracker,
-    source_code_link: "https://github.com/himanshu8443/FlipKart-Price-Tracker",
-    live_link:
-      "https://chromewebstore.google.com/detail/fliptrack-flipkart-price/pekpfcghlbljghaojdlajgpceebobokd?hl=en",
+      "Secured Top 15 in the Swalambh Hackathon at St. Vincent Pallotti College of Engineering.",
   },
   {
-    name: "Social Sphere",
+    title: "Top 10 - ClaudeSolvathon",
+    description: "Secured Top 10 in the ClaudeSolvathon at IIIT Nagpur.",
+  },
+  {
+    title: "Garudadrishti AI Platform Presentation",
     description:
-      "A full-stack social media application with user authentication, infinite scroll, and image and video uploads.",
-    features: [
-      "User authentication using JWT and OAuth providers.",
-      "Infinite scroll for posts.",
-      "Image and video uploads.",
-      "Like, comment, and share posts.",
-      "Follow and unfollow users.",
-      "Dark mode support.",
-    ],
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "nodejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Supabase",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "redux",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: socialSphere,
-    source_code_link: "https://github.com/himanshu8443/SocialSphere",
-    live_link: "https://socialspherex.vercel.app/",
+      "Presented the Garudadrishti AI platform before Hon. Chief Minister Devendra Fadnavis.",
+  },
+];
+
+const education = [
+  {
+    degree: "B.Tech. in Computer Engineering",
+    institution: "St. Vincent Pallotti College of Engineering & Technology",
+    location: "Nagpur, India",
+    date: "2023 - 2027",
+  },
+  {
+    degree: "HSC (Class 12)",
+    institution: "Dr MK Umathe College",
+    date: "2023",
+  },
+  {
+    degree: "SSC (Class 10)",
+    institution: "Somalwar Nikalas High School",
+    date: "2021",
   },
 ];
 
@@ -411,6 +353,9 @@ const projects = [
 export {
   services,
   technologies,
+  internships,
+  achievements,
+  education,
   //  experiences,
   //  testimonials,
   projects,
