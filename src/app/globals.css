@@ -212,7 +212,7 @@
   background-repeat: no-repeat;
   background-blend-mode: lighten;
   background-color: #050816;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 
@@ -275,12 +275,14 @@
 
 
 .sliderContainer{
-  position: absolute;
-  top: calc(100vh - 350px);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .slider{
   position: relative;
+  width: max-content;
   white-space: nowrap;
 }
 

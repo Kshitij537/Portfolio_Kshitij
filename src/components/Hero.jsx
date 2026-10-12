@@ -43,29 +43,32 @@ const Hero = () => {
   };
 
   return (
-    <section className='relative z-[-1] w-full h-screen mx-auto banner overflow-hidden'>
-      <div className='absolute inset-0 top-[150px] right-40 z-[-1] animation max-w-7xl mx-auto sm:px-16 px-6 flex flex-row items-start gap-5'>
-        <div className='flex flex-col justify-center items-center mt-5'>
-          <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
-          <div className='w-1 sm:h-80 h-40 violet-gradient' />
+    <section className='relative isolate w-full min-h-screen mx-auto banner overflow-hidden'>
+      <div className='relative z-10 flex min-h-screen flex-col justify-center gap-10 py-32 sm:gap-14'>
+        <div className='mx-auto w-full max-w-7xl px-6 sm:px-16'>
+          <div className='flex items-start gap-5'>
+            <div className='flex shrink-0 flex-col items-center mt-2'>
+              <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
+              <div className='w-1 h-24 sm:h-36 violet-gradient' />
+            </div>
+
+            <h1 className='min-w-0 font-black text-[38px] leading-[1.15] text-white sm:text-[60px] lg:text-[90px]'>
+              Hi, I'm <span className='block text-[31px] leading-[1.2] text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 sm:text-[48px] lg:text-[60px]'>Kshitij Deshmukh</span>
+            </h1>
+          </div>
         </div>
 
-        <div data-scroll data-scroll-speed='0.4'>
-          <h1 className='font-black lg:text-[90px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-20 text-white'>
-            Hi, I'm <span className='block text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 text-[60px] lg:text-[60px]'>Kshitij Deshmukh</span>
-          </h1>
+        <div className='sliderContainer text-secondary text-[36px] leading-tight sm:text-[60px] lg:text-[88px]'>
+          <div ref={slider} className='slider'>
+            <p ref={firstText}>Full-Stack Developer And AI/ML Developer.</p>
+            <p ref={secondText}>Full-Stack Developer And AI/ML Developer.</p>
+          </div>
         </div>
       </div>
-      <div className='sliderContainer md:z-[-10]'>
-        <div ref={slider} className='slider overflow-hidden text-secondary text-[70px] lg:text-[100px]'>
-          <p ref={firstText}>Full-Stack Developer And AI/ML Developer.</p>
-          <p ref={secondText}>Full-Stack Developer And AI/ML Developer.</p>
-        </div>
-      </div>
 
-      <Image loading='lazy' src={heroImg} alt='hero' className='z-[-2] absolute bottom-24 right-0 animation' />
+      <Image loading='lazy' src={heroImg} alt='hero' className='pointer-events-none z-0 absolute bottom-24 right-0 h-auto w-[45vw] max-w-[600px] lg:w-[38vw] animation' />
 
-      <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-30 cursor-pointer'>
+      <div className='absolute bottom-8 sm:bottom-10 w-full flex justify-center items-center z-30 cursor-pointer'>
         <a href='#about'>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2 cursor-pointer'>
             <motion.div
