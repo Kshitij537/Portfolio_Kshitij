@@ -7,6 +7,7 @@ import { styles } from '@/styles'
 import { menu, close } from '@/assets'
 import logo from '@/assets/logo.svg'
 import Image from 'next/image'
+import { FiDownload } from 'react-icons/fi'
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -63,6 +64,15 @@ const Navbar = () => {
           ))}
         </ul>
 
+        <a
+          href='/Kshitij_Deshmukh_Resume.pdf'
+          download='Kshitij_Deshmukh_Resume.pdf'
+          className='hidden xl:inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-[#915EFF] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#7c4de0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+        >
+          <FiDownload aria-hidden='true' />
+          Download Resume
+        </a>
+
         <div className='xl:hidden flex flex-1 justify-end items-center'>
           <Image
             src={toggle ? close : menu}
@@ -74,7 +84,7 @@ const Navbar = () => {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[180px] z-10 rounded-xl flex-col gap-5`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
               {navLinks.map((nav) => (
@@ -92,6 +102,15 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
+            <a
+              href='/Kshitij_Deshmukh_Resume.pdf'
+              download='Kshitij_Deshmukh_Resume.pdf'
+              onClick={() => setToggle(false)}
+              className='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-[#915EFF] px-3 py-2 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+            >
+              <FiDownload aria-hidden='true' />
+              Download Resume
+            </a>
           </div>
         </div>
       </div>
